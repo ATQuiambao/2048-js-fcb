@@ -17,6 +17,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    color: #0047AB;
 }
 
 .container{
@@ -31,8 +32,8 @@ hr {
 #board {
     width: 400px;
     height: 400px;
-    background-color: #cdc1b5; /*close to beige*/
-    border: 6px solid #bbada0; /*silk*/
+    background-color: #EFFAFF; /*close to beige*/
+    border: 6px solid #B7DFF2; /*silk*/
     margin: 0 auto; /*y-margin is set to 0, x-margin is set to auto*/
     display: flex;
     flex-wrap: wrap;  
@@ -43,7 +44,7 @@ hr {
     display: inline-block;
     width: 90px;
     height: 90px;
-    border: 5px solid #bbada0;
+    border: 5px solid #B7DFF2;
     font-size: 40px;
     font-weight: bold;
     display: flex;
