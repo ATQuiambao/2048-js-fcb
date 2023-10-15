@@ -31,6 +31,7 @@ function setGame(){
 	        
 	        document.getElementById("board").append(tile); 
 
+
 	    }
 	}
 
@@ -199,7 +200,7 @@ function slideUp(){
         // Check which tiles have changed in this column
         // This will record the current position of tiles that have change. 
         let changedIndices = [];
-        for (let r = 0; r < columns; r++) { 
+        for (let r = 0; r < rows; r++) { 
             if (originalRow[r] !== row[r]) {
                 /* 
                 originalRow = [2, 0, 2, 0]
@@ -214,7 +215,7 @@ function slideUp(){
             }
         }
 
-        for(let r = 0; r < columns; r++){
+        for(let r = 0; r < rows; r++){
             board[r][c] = row[r]
             let tile = document.getElementById(r.toString() + "-" + c.toString());
             let num = board[r][c];
@@ -252,7 +253,7 @@ function slideDown(){
         
         // Check which tiles have changed in this column
         let changedIndices = [];
-        for (let r = 0; r < columns; r++) {
+        for (let r = 0; r < rows; r++) {
                 /* 
                 originalRow = [2, 0, 2, 0]
                 row = [0, 0, 0, 4]
@@ -268,7 +269,7 @@ function slideDown(){
             }
         }   // [0, 2, 3]
 
-        for(let r = 0; r < columns; r++){
+        for(let r = 0; r < rows; r++){
             board[r][c] = row[r]
             let tile = document.getElementById(r.toString() + "-" + c.toString());
             let num = board[r][c];
@@ -577,20 +578,28 @@ document.addEventListener('touchend', (e) => {
     if (Math.abs(diffX) > Math.abs(diffY)) {
         // Horizontal swipe
         if (diffX > 0) {
-            slideLeft(); // Call a function for sliding left
-            setTwo(); // Call a function named "setTwo"
+            if(canMoveLeft()){
+                slideLeft(); // Call a function for sliding left
+                setTwo(); // Call a function named "setTwo"
+            }
         } else {
-            slideRight(); // Call a function for sliding right
-            setTwo(); // Call a function named "setTwo"
+            if(canMoveRight()){
+                slideRight(); // Call a function for sliding right
+                setTwo(); // Call a function named "setTwo"
+            }
         }
     } else {
         // Vertical swipe
         if (diffY > 0) {
-            slideUp(); // Call a function for sliding up
-            setTwo(); // Call a function named "setTwo"
+            if(canMoveUp()){
+                slideUp(); // Call a function for sliding up
+                setTwo(); // Call a function named "setTwo"
+            }
         } else {
-            slideDown(); // Call a function for sliding down
-            setTwo(); // Call a function named "setTwo"
+            if(canMoveDown()){
+                slideDown(); // Call a function for sliding down
+                setTwo(); // Call a function named "setTwo"
+            }
         }
     }
 
